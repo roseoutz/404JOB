@@ -39,4 +39,6 @@
 	<sqlMap resource="/sql/admin_qnaSQL.xml"/>
 	<sqlMap resource="/sql/admin_noticeSQL.xml"/>
 	<sqlMap resource="/sql/resumeSQL.xml"/>
+	<sqlMap resource="/sql/applySQL.xml"/>
+	<sqlMap resource="/sql/editInfoSQL.xml"/>
 </sqlMapConfig>
