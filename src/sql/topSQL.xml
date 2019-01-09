@@ -20,12 +20,21 @@
 		<result property = "detail_url" column = "detail_url"/>
 		<result property = "detail_logo" column = "detail_logo"/>
 	</resultMap>
-	<!-- 
-	<select id="selectTOP" resultMap="topRes" parameterClass="Map">
-		select  rownum, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname
-		from  kh_post, KH_CMEMBER where (cmember_id=post_writer and cmember_id=detail_cmember_id) and post_career=#post_career# and cmember_type=#cmember_type# order by post_pay desc
+ 	<select id="selectMain" resultMap="topRes">
+	 <![CDATA[ 
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and  rownum <= 6  order by post_pay desc
+		]]> 
 	</select>
-	 -->
+	
+	<select id="selectTop6" resultMap="topRes" parameterClass = "String">
+	 <![CDATA[ 
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and  rownum <= 6 and cmember_type = #cmember_type#
+		 order by post_pay desc
+		]]> 
+	</select>
+
 	 <select id="selectTOP" resultMap="topRes">
 		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
 		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) order by post_pay desc

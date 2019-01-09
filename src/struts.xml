@@ -62,8 +62,8 @@
 			<result type="tiles">corppostlist</result>
 		</action>	
 	</package>
-	<package name = "main" extends = "struts-default, tiles-default">
-		<action name = "main">
+	<package name="main" extends="struts-default, tiles-default">
+		<action name="main" class="top100.mainList">
 			<result type="tiles">main</result>
 		</action>
 	</package>

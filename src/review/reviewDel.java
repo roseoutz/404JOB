@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Map;
 
-import javax.servlet.jsp.PageContext;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
