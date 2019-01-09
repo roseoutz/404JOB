@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="review" type="VO.khReviewVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="review" id="reviewRes">
+			<result property="review_no" column="review_no"/>
+			<result property="review_writer" column="review_writer"/>
+			<result property="review_content" column="review_content"/>
+			<result property="review_date" column="review_date"/>
+			<result property="review_star" column="review_star"/>
+			<result property="review_post_no" column="review_post_no"/>
+		</resultMap>
+		
+		<insert id="insertreview" parameterClass="review">
+			insert into kh_review(review_no, review_writer, review_content, review_date, review_star, review_post_no)
+			values (kh_review_seq.NEXTVAL, #review_writer#, #review_content#, #review_date#, #review_star#, #review_post_no#)
+		</insert>
+		
+		<select id="selectreview" resultMap="reviewRes" parameterClass = "int">
+			select * from kh_review where review_post_no = #review_post_no# order by review_no desc
+		</select>
+		
+		
+
+		<delete id="deletereview" parameterClass="review">
+			delete from kh_review where (review_no = #review_no#) and (review_post_no = #review_post_no#) and (review_writer = #review_writer#)
+		</delete>
+</sqlMap>

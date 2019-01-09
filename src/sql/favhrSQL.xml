@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="favhr" type="VO.khFavHrVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="favhr" id="favhrRes">
+			<result property="fav_h_m_id" column="fav_h_m_id"/>
+			<result property="fav_h_c_id" column="fav_h_c_id"/>
+			<result property="fav_h_no" column="fav_h_no"/>
+		</resultMap>
+		
+		<insert id="favhr_m" parameterClass="favhr">
+			insert into kh_fav_hr(fav_h_m_id, fav_h_c_id, fav_h_no) values(#fav_h_m_id#,#fav_h_c_id#,fav_h_no_seq.NEXTVAL)
+		</insert>
+		<delete id="favhrDel" parameterClass="favhr">
+			delete from kh_fav_hr where fav_h_c_id=#fav_h_c_id# and fav_h_m_id=#fav_h_m_id# and fav_h_no=#fav_h_no#
+		</delete>
+		
+		
+	<typeAlias alias="favhrlist" type="VO.khHrSearchVO"/>
+	
+		<resultMap class="favhrlist" id="favhrlistRes">
+			<result property="fav_h_no" column="fav_h_no"/>
+			<result property="member_id" column="member_id"/>
+			<result property="member_name" column="member_name"/>
+			<result property="resume_addr" column="resume_addr"/>
+			<result property="resume_subject" column="resume_subject"/>
+			<result property="resume_birth" column="resume_birth"/>
+			<result property="resume_sex" column="resume_sex"/>
+			<result property="edu_school_type" column="edu_school_type"/>
+			<result property="cal" column="cal"/>
+		</resultMap>
+		
+		<select id="favhrList" resultMap="favhrlistRes" parameterClass="String">
+			select 
+			(select MONTHS_BETWEEN(TO_DATE(career_leave_date,'yyyy-mm'), TO_DATE(career_enter_date,'yyyy-mm')) FROM KH_CAREER) cal, 
+			fav_h_no, member_id, member_name, resume_addr, resume_subject, resume_birth, resume_sex, edu_school_type from KH_MEMBER
+			INNER JOIN KH_RESUME on(resume_m_id = member_id)
+			inner JOIN KH_FAV_HR on(fav_h_m_id = member_id)
+			INNER JOIN KH_EDU on(resume_no = edu_resume_no)
+			INNER JOIN KH_CAREER on(career_re_no=resume_no) where fav_h_c_id=#fav_h_c_id# order by fav_h_no desc
+		</select>
+	
+</sqlMap>

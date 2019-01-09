@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="favcmember" type="VO.khTopVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="favcmember" id="favcmemberRes">
+			<result property="cmember_id" column="cmember_id"/>
+		</resultMap>
+		
+		<select id="favcmem" parameterClass="favcmember" resultClass="String">
+			select cmember_id from kh_cmember,KH_POST where post_no=#post_no# and cmember_cname=#cmember_cname#
+		</select>
+		
+	<typeAlias alias="favcorp" type="VO.khFavCompanyVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="favcorp" id="favcorpRes">
+			<!-- <result property="fav_c_no" column="fav_c_no"/> -->
+			<result property="fav_c_m_id" column="fav_c_m_id"/>
+			<result property="fav_c_c_id" column="fav_c_c_id"/>
+		</resultMap>
+		<insert id="favcorpinsert" parameterClass="favcorp">
+			insert into kh_fav_company(fav_c_no,fav_c_m_id,fav_c_c_id) values(fav_c_no_seq.NEXTVAL, #fav_c_m_id#, #fav_c_c_id#)
+		</insert>	
+</sqlMap>

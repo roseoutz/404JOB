@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	
+	<typeAlias alias = "top" type = "VO.khTopVO"/>
+	
+	<!-- 리절트 맵 정의 -->
+	<resultMap id = "topRes" class = "top">
+		<result property = "rownum" column="rownum"/>
+		<result property = "post_no" column="post_no"/>
+		<result property = "post_subject" column = "post_subject"/>
+		<result property = "post_career" column = "post_career"/>
+		<result property = "post_em_type" column = "post_em_type"/>
+		<result property = "post_edu" column = "post_edu"/>
+		<result property = "post_loc" column="post_loc"/>
+		<result property = "cmember_type" column = "cmember_type"/>
+		<result property = "cmember_cname" column = "cmember_cname"/>
+		<result property = "cmember_type" column = "cmember_type"/>
+		<result property = "detail_url" column = "detail_url"/>
+		<result property = "detail_logo" column = "detail_logo"/>
+	</resultMap>
+	<!-- 
+	<select id="selectTOP" resultMap="topRes" parameterClass="Map">
+		select  rownum, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname
+		from  kh_post, KH_CMEMBER where (cmember_id=post_writer and cmember_id=detail_cmember_id) and post_career=#post_career# and cmember_type=#cmember_type# order by post_pay desc
+	</select>
+	 -->
+	 <select id="selectTOP" resultMap="topRes">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) order by post_pay desc
+	</select>
+	<select id="selectTOP_cat" resultMap="topRes">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and cmember_type=#cmember_type# order by post_pay desc
+	</select>
+	<select id="selectTOP_newbee" resultMap="topRes">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and (post_career='무관' or post_career='신입') order by post_pay desc
+	</select>
+	<select id="selectTOP_oldbee" resultMap="topRes">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and (post_career='무관' or post_career!='신입') order by post_pay desc
+	</select>
+	
+	<select id="selectTOP_newbee_cat" resultMap="topRes" parameterClass="String">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and (post_career='무관' or post_career='신입') and cmember_type=#cmember_type# order by post_pay desc
+	</select>
+	<select id="selectTOP_oldbee_cat" resultMap="topRes" parameterClass="String">
+		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and (post_career='무관' or post_career!='신입') and cmember_type=#cmember_type# order by post_pay desc
+	</select>
+	
+</sqlMap>

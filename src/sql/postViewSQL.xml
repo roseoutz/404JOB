@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="postview" type="VO.khPostViewVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="postview" id="postViewRes">
+			<result property="post_no" column="post_no"/>
+			<result property="post_subject" column="post_subject"/>
+			<result property="post_content" column="post_content"/>
+			<result property="post_career" column="post_career"/>
+			<result property="post_edu" column="post_edu"/>
+			<result property="post_em_type" column="post_em_type"/>
+			<result property="post_pay" column="post_pay"/>
+			<result property="post_loc" column="post_loc"/>
+			<result property="post_prefer" column="post_prefer"/>
+			<result property="post_time" column="post_time"/>
+			<result property="cmember_type" column="cmember_type"/>
+			<result property="cmember_cname" column="cmember_cname"/>
+			<result property="detail_em_num" column="detail_em_num"/>
+			<result property="detail_capital" column="detail_capital"/>
+			<result property="detail_sales" column="detail_sales"/>
+			<result property="detail_dept" column="detail_dept"/>
+			<result property="detail_url" column="detail_url"/>
+			<result property="detail_logo" column="detail_logo"/>
+		</resultMap>
+		
+		<select id="selectPostOne" parameterClass="int" resultMap="postViewRes">
+		select post_no, post_subject, post_content, post_career, post_edu, post_em_type, post_pay, post_loc, 
+		post_prefer, post_time, cmember_type, cmember_cname, detail_em_num, detail_sales, detail_url, detail_logo, detail_capital, detail_dept
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) 
+		and post_no = #post_no#
+		</select>
+	<typeAlias alias="postFavList" type="VO.khPostViewVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="postFavList" id="postFavListRes">
+			<result property="post_no" column="post_no"/>
+			<result property="post_subject" column="post_subject"/>
+			<result property="post_date" column="post_date"/>
+			<result property="cmember_cname" column="cmember_cname"/>
+			<result property="detail_url" column="detail_url"/>
+			<result property="detail_logo" column="detail_logo"/>
+		</resultMap>
+		<select id="selectFavPostList" parameterClass="String" resultMap="postFavListRes">
+			select post_no, post_subject, post_date, cmember_cname, detail_url, detail_logo
+			 from kh_post, KH_CMEMBER, KH_CMEMBER_DETAIL, KH_FAV_COMPANY, KH_MEMBER
+			 where kh_fav_company.fav_c_c_id = kh_cmember.cmember_id
+			 and kh_cmember.cmember_id = kh_post.POST_WRITER
+			 and kh_cmember_detail.detail_cmember_id = kh_cmember.cmember_id
+			 and kh_fav_company.fav_c_m_id = kh_member.member_id
+			 and kh_fav_company.fav_c_m_id = #member_id# order by fav_c_no desc
+		</select>
+</sqlMap>

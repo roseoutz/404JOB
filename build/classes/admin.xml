@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name = "adminPage" extends = "struts-default, tiles-default">
+		<action name = "admin_main">
+			<result type = "tiles">admin_main</result>
+		</action>
+		 <action name = "memberlistGen" class = "admin.memberlistGenAction">
+		 	<result type = "tiles">memberlistGen</result>
+	    </action>
+	     <action name = "memberlistCorp" class = "admin.memberlistCorpAction">
+		 	<result type = "tiles">memberlistCorp</result>
+	    </action>
+	    <action name = "admin_qna" class = "admin.qnaAction">
+	    	<result type = "tiles">admin_qna</result>
+	    </action>
+	    <action name = "viewqna" class = "admin.viewqnaAction">
+	    	<result type = "tiles">viewqna</result>
+	    </action>
+	    <action name = "deleteqna" class = "admin.deleteqnaAction">
+	    	<result>/admin/qna/deleteOK.jsp</result>
+	    </action>
+	    <action name = "admin_simpleqna">
+	    	<result type = "tiles">admin_simpleqna</result>
+	    </action>
+	    <action name = "admin_notice">
+	    	<result type = "tiles">admin_notice</result>
+	    </action>
+	    <action name = "writeNotice" class = "admin.writeNoticeAction">
+	    	<result>/admin/notice/writeOK.jsp</result>
+	    </action>
+		<action name = "admin_login" class = "admin.loginAction">
+			<result name = "error">/admin/login/loginFail.jsp</result>
+			<result name = "success">/admin/login/loginSuccess.jsp</result>
+		</action>
+		<action name = "admin_logout" class = "admin.logoutAction">
+			<result>/admin/main/logout.jsp</result>
+		</action>
+		<action name = "deleteMember" class = "admin.deleteMemberAction">
+			<result>/admin/memberlist/deleteOK.jsp</result>
+		</action>
+		<action name = "deleteCorpMember" class = "admin.deleteCorpMemberAction">
+			<result>/admin/memberlistCorp/deleteOK.jsp</result>
+		</action>
+		<action name = "writeSimpleQna" class = "admin.writeSimpleQnaAction">
+			<result>/admin/simpleqna/writeOK.jsp</result>
+		</action>
+	   
+	</package>
+</struts>
