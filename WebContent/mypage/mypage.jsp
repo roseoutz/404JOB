@@ -132,14 +132,19 @@
 					<ul>
 						<li><a href="resumewrite/resumewrite.jsp"
 							target="_blank">이력서 등록</a></li>
-						<li><a href="rslist.action">이력서
-								관리</a></li>
+						<li><a href="rslist.action">이력서 관리</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
 					<h2 class="lnbTit">회원정보 관리</h2>
 					<ul>
-						<li><a href="#">회원정보 수정</a></li>
+						<s:if test="#session.session_type=='기업'">
+							<li><a href="./corpInfo.action">
+							회원정보 수정</a></li>
+						</s:if>
+						<s:else>
+							<li><a href="./geInfo.action">회원정보 수정</a></li>
+						</s:else>
 						<s:if test="#session.session_type=='기업'">
 							<li><a
 								href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')"

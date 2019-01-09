@@ -3,17 +3,18 @@ package VO;
 import java.util.Date;
 
 public class khCMemberVO {
-	private String cmember_cno; 
+	private String cmember_cno;
 	private String cmember_id;
-	private String cmember_pass; 
-	private String cmember_name; 
-	private String cmember_phone; 
+	private String cmember_pass;
+	private String cmember_name;
+	private String cmember_phone;
 	private String cmember_email;
-	private String cmember_type; 
-	private String cmember_cname; 
+	private String cmember_type;
+	private String cmember_cname;
 	private String cmember_addr;
 	private String cmember_ceo;
 	private Date cmember_date;
+	private String cmember_pdate;
 
 	public String getCmember_cno() {
 		return cmember_cno;
@@ -103,6 +104,12 @@ public class khCMemberVO {
 		this.cmember_date = cmember_date;
 	}
 
-	
+	public String getCmember_pdate() {
+		return cmember_pdate;
+	}
+
+	public void setCmember_pdate(String cmember_pdate) {
+		this.cmember_pdate = cmember_pdate;
+	}
 
 }
