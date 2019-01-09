@@ -17,9 +17,10 @@
 							<li class="hdTab"><a
 								href="corppostlist.action">공고 관리</a></li>
 							<li class="on"><a
-								href="corphr.action">지원자 관리</a></li>
+								href="corpresumelist.action">지원자 관리</a></li>
 						</ul>
 					</div>
+
 
 					<div class="tableList  ">
 						<div class="">
@@ -27,14 +28,30 @@
 								<div class="col col01">공고 제목</div>
 								<div class="col col02">공고 관리</div>
 							</div>
+							
+							
 							<div class="mtuList">
 								<ul>
+								
+								<s:if test="postlist.size()<=0">
+										<li class="">
+											<button type="button" class="lugBtnA lugBtnMore tabSearchListTitle devFaqItem tplBtnMore" id="btn">
+												<span
+													class="cl3399ff">등록된 게시물이 없습니다.</span>
+											</button>
+											<!--[개발] tplBtn tplBtnMore => lugBtnA lugBtnMore 클래스명 수정, 클릭 시 tplBtnCls_3 => on 클래스명 수정 -->
+											<div class="searchListData" style="display: none;">
+												test
+											</div>
+										</li>
+									</s:if>
+									<s:else>
 									<!-- [개발] 이력서 작성중 yet 클래스 추가 -->
+									<s:iterator value="postlist" status="stat">
 									<li class="ing">
 										<div class="col col01">
 											<div class="tit">
-												<em class="badge">2018.12.19</em><a
-													href="/User/Resume/Write" target="_blank">공고 제목</a>
+												<a href="postview.action?post_no=<s:property value="post_no"/>" target="_blank"><s:property value="post_subject"/></a>
 											</div>
 											<div class="date"></div>
 										</div>
@@ -44,14 +61,23 @@
 												<a class="btn" href="" target="_blank">수정</a>
 											</div>
 											<div class="btnCell">
-												<button class="btn" type="button" onclick="">
+												<button class="btn" type="button" onclick="location.href='corppostdelete.action?post_writer=<s:property value="post_writer"/>&post_no=<s:property value="post_no"/>'">
 													<span>삭제</span>
 												</button>
 											</div>
 										</div>
 									</li>
+<!-- ★ -->								
+
+									</s:iterator>
+<!-- ★ -->							</s:else>		
+									
+<!-- ★ -->									
+									
 								</ul>
 							</div>
+							
+							
 						</div>
 
 						<div class="linkMng"></div>

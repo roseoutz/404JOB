@@ -16,12 +16,6 @@
 		</action>
 	</package>
 	
-	<package name="corpresumelist" extends="struts-default, tiles-default">
-		<action name="corpresumelist">
-			<result type="tiles">corpresumelist</result>
-		</action>	
-	</package>
-	
 	<package name="coprinfo" extends="struts-default, tiles-default">
 		<action name="corpinfo">
 			<result type="tiles">corpinfo</result>
@@ -52,16 +46,26 @@
 		</action>	
 	</package>
 	
-	<package name="corppostlist" extends="struts-default, tiles-default">
-		<!-- ListAction 
-		<action name="postWriteAction" class="post.postWriteAction">
+	<package name="corpresumelist"
+		extends="struts-default, tiles-default">
+		<action name="corpresumelist"
+			class="corpApplicant.corpAppListAction">
+			<result type="tiles">corpresumelist</result>
+		</action>
+	</package>
+	<package name="corppostlist"
+		extends="struts-default, tiles-default">
+		<!-- ListAction <action name="postWriteAction" class="post.postWriteAction"> 
+			<result type="tiles">corppostlist</result> </action> -->
+		<action name="corppostlist" class="post.postListAction">
 			<result type="tiles">corppostlist</result>
 		</action>
-		-->
-		<action name="corppostlist">
-			<result type="tiles">corppostlist</result>
-		</action>	
+		<action name="corppostdelete" class="post.postDeleteAction">
+			<result type="tiles">corppostdelete</result>
+		</action>
+
 	</package>
+	
 	<package name="main" extends="struts-default, tiles-default">
 		<action name="main" class="top100.mainList">
 			<result type="tiles">main</result>

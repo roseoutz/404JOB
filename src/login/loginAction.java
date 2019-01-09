@@ -55,16 +55,18 @@ public class loginAction extends ActionSupport implements SessionAware{
 			if(CresultClass == null) {
 			return ERROR;
 			}else {
+				System.out.println("11");
 				session.put("session_id", CresultClass.getCmember_id());
-				session.put("session_type", "±‚æ˜");
+				session.put("session_type", "Í∏∞ÏóÖ");
 				session.put("session_name", CresultClass.getCmember_name());
 				setHeaderType("corpmain");
 				return SUCCESS;
 			}
 			
 		}else {
+			System.out.println("22");
 			session.put("session_id", resultClass.getMember_id());
-			session.put("session_type", "¿œπ›");
+			session.put("session_type", "ÏùºÎ∞ò");
 			session.put("session_name", resultClass.getMember_name());
 			session.put("session_email", resultClass.getMember_email());
 			session.put("session_phone", resultClass.getMember_phone());

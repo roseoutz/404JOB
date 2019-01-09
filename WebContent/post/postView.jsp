@@ -89,12 +89,6 @@
                                 <dd>
                                     <span class="tahoma"><s:property value="%{resultClass.detail_em_num}"/></span>명
                                 </dd>
-                                <dt>설립년도</dt>
-                                <dd>
-                                    <text>
-                                        <span class="tahoma">1994</span>년 (<span class="tahoma">25</span>년차)
-                                    </text>
-                                </dd>
                                 <dt>기업형태</dt>
                                 <dd>
                                     <s:property value="%{resultClass.cmember_type}"/>

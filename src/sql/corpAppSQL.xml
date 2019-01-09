@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="corpapplist" type="VO.khCApplicantVO" />
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+	<resultMap class="corpapplist" id="CorpAppViewListRes">
+		<result property="resume_subject" column="resume_subject" />
+		<result property="member_name" column="member_name" />
+		<result property="resume_birth" column="resume_birth" />
+		<result property="resume_sex" column="resume_sex" />
+		<result property="resume_addr" column="resume_addr" />
+		<result property="edu_school_type" column="edu_school_type" />
+	</resultMap>
+
+	<select id="selectAppList" parameterClass="String" resultMap="CorpAppViewListRes">
+				select member_name, resume_birth, resume_sex, resume_subject, resume_addr, edu_school_type 
+		from kh_member, kh_resume, kh_edu, kh_cmember, kh_apply_hr, kh_post
+		where (resume_m_id = member_id and resume_no = edu_resume_no and #cmember_id# = apply_c_id and member_id = APPLY_M_ID);
+	</select>
+
+</sqlMap>
