@@ -44,7 +44,7 @@
 						<nav>
 						<ul style="float:left;">
 							<!-- 채용정보 -->
-							<s:if test="#session.session_type=='corp'">
+							<s:if test="#session.session_type=='기업'">
 							<li><a href="corppost.action" style="font:bold 20px Dotum;">공고 등록</a></li>
 							<li><a href="corphr.action" style="font:bold 20px Dotum;">공고 인재 관리</a></li>
 							<li><a href="simpleqna.action" style="font:bold 20px Dotum;">고객센터</a></li>
@@ -66,7 +66,7 @@
 							<li><a style="font:bold 15px Dotum;">
 							<s:property value = "#session.session_id"/>님</a></li>
 							<li><em>
-							<s:if test="#session.session_type=='corp'">
+							<s:if test="#session.session_type=='기업'">
 							기업회원
 							</s:if>
 							<s:else>

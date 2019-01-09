@@ -23,7 +23,6 @@ public class loginAction extends ActionSupport implements SessionAware{
 	private int checkCount;
 	private String headerType;
 	private Map session;
-	private String session2;
 	
 	public loginAction() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -41,11 +40,14 @@ public class loginAction extends ActionSupport implements SessionAware{
 	
 	public String execute() throws Exception{
 		paramClass = new khMemberVO();
-		CparamClass = new khCMemberVO();
 		resultClass = new khMemberVO();
-		CresultClass = new khCMemberVO();
+
 		paramClass.setMember_id(getId());
 		paramClass.setMember_pass(getPwd());
+		
+		CparamClass = new khCMemberVO();
+		CresultClass = new khCMemberVO();
+		
 		CparamClass.setCmember_id(getId());
 		CparamClass.setCmember_pass(getPwd());
 		
@@ -56,7 +58,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 			return ERROR;
 			}else {
 				session.put("session_id", CresultClass.getCmember_id());
-				session.put("session_type", "±‚æ˜");
+				session.put("session_type", "Í∏∞ÏóÖ");
 				session.put("session_name", CresultClass.getCmember_name());
 				setHeaderType("corpmain");
 				return SUCCESS;
@@ -64,7 +66,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 			
 		}else {
 			session.put("session_id", resultClass.getMember_id());
-			session.put("session_type", "¿œπ›");
+			session.put("session_type", "ÏùºÎ∞ò");
 			session.put("session_name", resultClass.getMember_name());
 			session.put("session_email", resultClass.getMember_email());
 			session.put("session_phone", resultClass.getMember_phone());
