@@ -234,7 +234,7 @@
 											<div class="side">
 												<span class="btn app"><button type="button" style="border:1px solid #ffffff;"
 														class="tplBtn tplBtn_1 tplBtnBlue devApplyHomepage" 
-														onclick="">
+														onclick="return nowApply(<s:property value="cmember_cname"/>, <s:property value = "post_no"/>);">
 														<span>즉시 지원</span>
 													</button></span>
 												<!--마감일-->
@@ -263,3 +263,13 @@
 
 
 		</div>
+<script>
+	function nowApply(cname, post_no){
+		if(confirm('지원하시겠습니까?') == true){
+			location.href='applysubmit.action?cname='+cname+'&post_no='+post_no;
+			
+		}else{
+			return;
+		}
+	}
+</script>

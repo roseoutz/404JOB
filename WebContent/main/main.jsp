@@ -65,12 +65,12 @@
 					style="width: 810px; float: left;">
 					
 						<s:iterator value="post2" status="stat">
-							<li class="itemTopBg" style="width: 270px;">
+							<li class="itemTopBg" style="width: 270px; height:120px;">
 								<div class="company">
 									<span class="name"> 
 									<span class="logo" style="width: 268px;"> 
 									<img src=<s:property value="detail_logo"/> width="100" height="50"
-											onerror="this.src='//img.jobkorea.co.kr/Images/Logo/86/l/o/logo_none_86.gif';">
+											onerror="/image/404JOB.png;">
 								</span>
 											<a class="coLink" href="postview.action?post_no=<s:property value='post_no'/>"
 							 target="_blank" title="기업정보 이동">
@@ -82,14 +82,6 @@
 								
 									<span><s:property value="post_subject" /></span>
 								</div>
-								<div class="extra">
-									<button type="button" class="btn btnSm_1"
-									onclick = "location.href ='postview.action?post_no=<s:property value='post_no'/>'"
-									
-							 target="_blank" title="기업정보 이동">
-										즉시지원</button>
-								</div>
-
 							</li>
 						</s:iterator>
 						

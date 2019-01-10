@@ -17,21 +17,21 @@
 				</h1>
 				<!-- // search -->
 				<div class="search">
-					<h2 class="skip">검색</h2>
-					<form name="global_seek" id="AKCFrm" autocomplete="off"
-						action="/Search/" onsubmit="return GoMainTotalSearch();"
-						target="_self">
-						<fieldset>
-							<legend>Smart Match 통합검색</legend>
-							<div class="smKey">
-								<input type="text" id="stext" title="검색어 입력" name="stext"
-									maxlength="50" style="background: none;"> <input
-									type="submit" value="검색" class="submit spGnb"
-									id="common_search_btn">
-							</div>
-						</fieldset>
-					</form>
-				</div>
+               <h2 class="skip">검색</h2>
+               <form name="global_seek" id="AKCFrm" autocomplete="off"
+                  action="mainsearch.action" onsubmit="return GoMainTotalSearch();"
+                  target="_self">
+                  <fieldset>
+                     <legend>Smart Match 통합검색</legend>
+                     <div class="smKey">
+                        <input type="text" id="stext" title="검색어 입력" name="search"
+                           maxlength="50" style="background: none;"> <input
+                           type="submit" value="검색" class="submit spGnb"
+                           id="common_search_btn">
+                     </div>
+                  </fieldset>
+               </form>
+            </div>
 			</div>
 			<!-- headInner // -->
 
@@ -46,13 +46,13 @@
 							<!-- 채용정보 -->
 							<s:if test="#session.session_type=='기업'">
 							<li><a href="corppost.action" style="font:bold 20px Dotum;">공고 등록</a></li>
-							<li><a href="corphr.action" style="font:bold 20px Dotum;">공고 인재 관리</a></li>
+							<li><a href="applyList.action" style="font:bold 20px Dotum;">공고 인재 관리</a></li>
 							<li><a href="simpleqna.action" style="font:bold 20px Dotum;">고객센터</a></li>
 							<li><a href="corppostlist.action" style="font:bold 20px Dotum;">마이페이지</a></li>
 							</s:if>
 							
 							<s:else>
-							<li><a href="hireinfo.action" style="font:bold 20px Dotum;">채용정보</a></li>
+							<li><a href="main.action" style="font:bold 20px Dotum;">채용정보</a></li>
 							<li><a href="top100.action" style="font:bold 20px Dotum;">TOP100</a></li>
 							<li><a href="simpleqna.action" style="font:bold 20px Dotum;">고객센터</a></li>
 							<li><a href="mypage.action" style="font:bold 20px Dotum;">마이페이지</a></li>

@@ -4,6 +4,17 @@ public class khFavCompanyVO {
 	private int fav_c_no;		//식별자
 	private String fav_c_m_id;	//기업을 관심있어하는 일반회원의 id
 	private String fav_c_c_id;	//관심받는 기업 id
+	private int post_no;
+	
+	
+
+	public int getPost_no() {
+		return post_no;
+	}
+
+	public void setPost_no(int post_no) {
+		this.post_no = post_no;
+	}
 
 	public int getFav_c_no() {
 		return fav_c_no;

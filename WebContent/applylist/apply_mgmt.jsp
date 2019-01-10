@@ -18,9 +18,9 @@
 				<div class="contWrap ResumeMngCont">
 					<div class="innerHd">
 						<ul>
-							<li class="hdTab"><a
-								href="corppostlist.action">공고 관리</a></li>
 							<li class="on"><a
+								href="corppostlist.action">공고 관리</a></li>
+							<li class="hdTab"><a
 								href="applyList.action">지원자 관리</a></li>
 						</ul>
 					</div>
@@ -39,7 +39,7 @@
 											<div class="col col01">
 												<div class="tit">
 													<em class="badge">NEW</em>
-													<a href="" target="_blank">
+													<a href="resumeView.action?member_id=<s:property value="resume_m_id"/>" target="_blank">
 														<input type="hidden" name="resume_subject" value="<s:property value="resume_subject"/>"/>
 														<s:property value="resume_subject"/>
 													</a>
@@ -114,7 +114,6 @@ function open_chk(){
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
 								<li><a href="geInfo.action">회원정보 수정</a></li>
-								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>
 					</section>

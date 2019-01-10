@@ -20,6 +20,8 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 	private int resume_no;
 	private Map session;
 	private String session_id;
+	private String member_id;
+	private String session_type;
 	
 	public resumeModifyListAction() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -29,16 +31,27 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 	
 	public String execute() throws Exception{
 		session_id = (String)session.get("session_id");
-		
+		session_type = (String)session.get("session_type");
 		apply = new khApplyVO();
-		resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
-		
+		if(session_type.equals("일반")) {
+			resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
+		} else {
+			resume_no = (int)sqlMapper.queryForObject("selectResume_no", getMember_id());
+		}
 		apply = (khApplyVO)sqlMapper.queryForObject("selectApply", resume_no);
 	
 		return SUCCESS;
 		
 	}
 	
+	public String getSession_type() {
+		return session_type;
+	}
+
+	public void setSession_type(String session_type) {
+		this.session_type = session_type;
+	}
+
 	public int getResume_no() {
 		return resume_no;
 	}
@@ -69,6 +82,30 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 
 	public void setApply(khApplyVO apply) {
 		this.apply = apply;
+	}
+
+	public static Reader getReader() {
+		return reader;
+	}
+
+	public static void setReader(Reader reader) {
+		resumeModifyListAction.reader = reader;
+	}
+
+	public static SqlMapClient getSqlMapper() {
+		return sqlMapper;
+	}
+
+	public static void setSqlMapper(SqlMapClient sqlMapper) {
+		resumeModifyListAction.sqlMapper = sqlMapper;
+	}
+
+	public String getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 
 	

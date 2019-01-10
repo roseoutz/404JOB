@@ -24,7 +24,7 @@
 								<div class="col col01" style="width:15%;"></div>
 								<div class="col col02" style="width:20%;">회사명</div>
 								<div class="col col03" style="width:40%;">공고명</div>
-								<div class="col col04" style="width:25%;">간편 처리</div>
+								<div class="col col04" style="width:25%;"></div>
 							</div>
 							<div class="mtuList">
 								<ul>
@@ -38,22 +38,15 @@
 										</div>
 										<div class="col col02" style="width:20%;">
 											<div class="tit">
-												<a href="postView.action?post_no=<s:property value="post_no"/>" target="_blank"><s:property value="cmember_cname"/></a>
+												<a href="postview.action?post_no=<s:property value="post_no"/>" target="_blank"><s:property value="cmember_cname"/></a>
 											</div>
 										</div>
 										<div class="col col03" style="width:40%;">
 											<div class="tit">
-												<s:property value="post_subject"/>
+												<a href="postview.action?post_no=<s:property value="post_no"/>" target="_blank"><s:property value="post_subject"/></a>
 											</div>
 										</div>
 										<div class="col col04" style="width:25%;">
-											<!-- checkbox -->
-											<div class="btnCell" >
-												<a class="btn" href="" style="width:70px;">즉시 지원</a>
-											</div>
-											<div class="btnCell">
-												<a class="btn" href="<s:property value="detail_url"/>" style="width:70px;">홈페이지</a>
-											</div>
 											<div class="btnCell">
 												<button class="btn" type="button" onclick="">
 													<span>삭제</span>
@@ -97,7 +90,6 @@
 					<ul>
 						<li><a href="favcorp.action">관심 기업</a></li>
 						<li><a href="geInfo.action">회원정보 수정</a></li>
-						<li><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">회원탈퇴</a></li>
 					</ul>
 				</div>
 			</section>

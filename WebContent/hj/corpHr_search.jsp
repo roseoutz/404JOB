@@ -135,7 +135,7 @@
 							<ul>
 								<li><a href="corphrsearch.action"
 									target="_blank">인재 검색</a></li>
-								<li><a href="applyList.action"
+								<li><a href="corphrfav.action"
 									target="_blank">관심 인재</a></li>
 							</ul>
 						</div>
@@ -145,7 +145,6 @@
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
 								<li><a href="corpInfo.action">회원정보 수정</a></li>
-								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>
 					</section>

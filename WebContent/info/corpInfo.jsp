@@ -43,7 +43,7 @@
 			<div class="secNav">
 				<ol>
 					<li class="mn1"><a href="editInfo.action"><span></span>개인정보 수정</a></li>
-					<li class="mn3 end"><li class="mn3 end"><a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" class=""><span></span>회원탈퇴</a></li></li>
+					<li class="mn3 end"><li class="mn3 end"><a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" class=""><span></span>회원탈퇴</a></li>
 				</ol>
 			</div>
 		</div>

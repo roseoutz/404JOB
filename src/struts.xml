@@ -208,6 +208,12 @@
 		</action>
 	</package>
 	
+	<package name="main_search" extends="struts-default, tiles-default">
+      <action name="mainsearch" class = "main.searchList" >
+         <result type="tiles">mainsearch</result>
+      </action>   
+        </package>
+	
 	<include file="join.xml"/>
 	<include file="login.xml"/>
 	<include file="pageMove.xml"/>

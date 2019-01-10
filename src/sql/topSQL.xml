@@ -23,21 +23,27 @@
  	<select id="selectMain" resultMap="topRes">
 	 <![CDATA[ 
 		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
-		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and  rownum <= 6  order by post_pay desc
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer or cmember_id=detail_cmember_id) and  rownum <= 6  order by post_pay desc
 		]]> 
 	</select>
 	
 	<select id="selectTop6" resultMap="topRes" parameterClass = "String">
 	 <![CDATA[ 
 		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
-		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and  rownum <= 6 and cmember_type = #cmember_type#
+		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer or cmember_id=detail_cmember_id) and  rownum <= 6 and cmember_type = #cmember_type#
 		 order by post_pay desc
 		]]> 
 	</select>
 
 	 <select id="selectTOP" resultMap="topRes">
-		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
-		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) order by post_pay desc
+		SELECT rownum,post_no, post_subject, post_career,post_pay, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
+FROM KH_CMEMBER_DETAIL 
+JOIN(SELECT *
+		FROM KH_CMEMBER,KH_POST
+		WHERE cmember_id = post_writer
+		ORDER BY post_pay DESC)
+ON DETAIL_CMEMBER_ID = cmember_id or post_writer = CMEMBER_ID
+
 	</select>
 	<select id="selectTOP_cat" resultMap="topRes">
 		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo
@@ -61,4 +67,17 @@
 		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) and (post_career='무관' or post_career!='신입') and cmember_type=#cmember_type# order by post_pay desc
 	</select>
 	
+	<select id="selectSearchPost" resultMap="topRes" parameterClass = "String">
+   SELECT rownum,post_no, post_subject, post_career,post_pay,
+   post_em_type, post_edu, post_loc, cmember_type, cmember_cname,
+   detail_url, detail_logo
+   FROM KH_CMEMBER_DETAIL
+   JOIN(SELECT *
+   FROM KH_CMEMBER,KH_POST
+   WHERE cmember_id = post_writer
+   ORDER BY post_pay
+   DESC)
+   ON DETAIL_CMEMBER_ID = cmember_id
+   WHERE post_subject LIKE '%'||#keyword#||'%' OR cmember_cname LIKE '%'||#keyword#||'%'
+   </select>
 </sqlMap>

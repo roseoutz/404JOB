@@ -4,6 +4,7 @@
 <sqlMap>
 	<typeAlias alias="post" type="VO.khPostVO"/>
 	<typeAlias alias="applyhr" type="VO.khApplyHrVO"/>
+	<typeAlias alias="applypost" type="VO.khApplyPostVO"/>
 	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
 		<resultMap class="post" id="postRes">
 			<result property="post_no" column="post_no"/>
@@ -20,6 +21,19 @@
 			<result property="post_time" column="post_time"/>
 		</resultMap>
 		
+		
+		<resultMap class="applypost" id="applypostRes">
+         <result property="post_no" column="post_no"/>
+         <result property="post_subject" column="post_subject"/>
+         <result property="post_career" column="post_career"/>
+         <result property="post_edu" column="post_edu"/>
+         <result property="post_em_type" column="post_em_type"/>
+         <result property="post_pay" column="post_pay"/>
+         <result property="post_loc" column="post_loc"/>
+         <result property="post_time" column="post_time"/>
+      </resultMap>
+		
+		
 		<insert id="insertPost" parameterClass="post">
 			insert into kh_post(post_no, post_subject, post_writer, post_content, post_date, post_career, post_edu, post_em_type, post_pay, post_loc, post_prefer, post_time)
 			values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
@@ -30,5 +44,12 @@
 			insert into kh_apply_hr(apply_no, apply_m_id, apply_c_id, apply_post_no) 
 			values (kh_apply_hr_seq.NEXTVAL, #apply_mem_id#, #apply_company_id#, #apply_post_no#)
 		</insert>
-
+      
+      <select id="selectApplyPost" parameterClass = "String" resultMap = "applypostRes">
+         SELECT post_no,post_subject,post_career,post_edu,post_em_type,post_pay,post_loc,post_time
+         FROM KH_APPLY_HR ,KH_MEMBER,KH_POST
+         WHERE member_id = APPLY_M_ID
+         AND apply_post_no = POST_NO
+         AND MEMBER_id = #member_id#
+      </select>
 </sqlMap>

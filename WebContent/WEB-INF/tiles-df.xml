@@ -5,6 +5,14 @@
 
 <tiles-definitions>
 <!--  -->
+
+	<definition name="mainsearch" template="/layout.jsp"> <!-- 메인 검색 -->
+       <put-attribute name="repo" value="/main/main_repo.jsp"/>
+       <put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+       <put-attribute name="header" value="/common/header.jsp"/>
+       <put-attribute name="footer" value="/common/footer.jsp"/>
+       <put-attribute name="body" value="/main/mainsearch.jsp"/>
+    </definition>
 	<definition name="simpleqna" template="/layout.jsp">
 		<put-attribute name="repo" value="/simpleqna/simpleqna_repo.jsp"/>
 		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
@@ -277,4 +285,6 @@
 		<put-attribute name="footer" value="/common/footer.jsp"/> 
  		<put-attribute name="body" value="/applylist/apply_mgmt.jsp"/> 
  	</definition>
+ 	
+ 	
 </tiles-definitions>

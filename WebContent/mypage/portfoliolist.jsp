@@ -102,7 +102,6 @@
 					<ul>
 						<li><a href="favcorp.action">관심 기업</a></li>
 						<li><a href="geInfo.action">회원정보 수정</a></li>
-						<li><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">회원탈퇴</a></li>
 					</ul>
 				</div>
 			</section>

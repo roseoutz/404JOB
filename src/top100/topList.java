@@ -25,8 +25,8 @@ public class topList extends ActionSupport{
 	private String career;
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 5;
-	private int blockPage = 5;
+	private int blockCount = 20;
+	private int blockPage = 20;
 	private String pagingHtml;
 	private topPagingAction page;
 	private String category;

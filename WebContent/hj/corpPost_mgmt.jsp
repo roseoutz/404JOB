@@ -124,7 +124,6 @@
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
 								<li><a href="corpInfo.action">회원정보 수정</a></li>
-								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>
 					</section>
