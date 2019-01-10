@@ -3,7 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 	<div id="wrap">
 		<section id="container">
 			<h1 class="tpl_hd_1" style="width: 960px; margin: auto;">
@@ -110,7 +109,7 @@
 				<p class="sumBtn">
 					<button type="button"
 						class="tplBtn tplBtn_1 tplBtnBlue devHomePageApplyBtn"
-						onclick="javascript:window.location='<s:property value="%{resultClass.detail_url}"/>';"
+						onclick="return nowApply(<s:property value="resultClass.cmember_cname"/>, <s:property value = "resultClass.post_no"/>);"
 						 id="devApplyBtn">
 						<span>즉시 지원</span>
 					</button>
@@ -300,6 +299,16 @@ p button:hover, p botton:focus {
 	background-color:#f84;
 }
 </style>
+<script>
+	function nowApply(cname, post_no){
+		if(confirm('지원하시겠습니까?') == true){
+			location.href='applysubmit.action?cname='+cname+'&post_no='+post_no;
+			
+		}else{
+			return;
+		}
+	}
+</script>
 <script>
 function open_win_noresizable(url, name) {
 	var oWin = window.open(url, name, "scrollbars=no,status=no, resizable=no, width=300, height=150");	

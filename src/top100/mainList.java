@@ -50,10 +50,8 @@ public class mainList extends ActionSupport{
 
 	public String execute() throws Exception {
 		if(getCategory()==null&&getKeyword()==null) {
-			System.out.println("1");
 			post = sqlMapper.queryForList("selectMain");
-			post2 = sqlMapper.queryForList("selectTop6", "´ë±â¾÷");
-			System.out.println("zzz" + post2.size());
+			post2 = sqlMapper.queryForList("selectTop6", "ëŒ€ê¸°ì—…");
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();

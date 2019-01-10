@@ -169,7 +169,13 @@
 		<result name="error">/common/checkError.jsp</result>
 		<result>/common/checkSuccess.jsp</result>
 	</action>
-		</package>
+	
+	<!-- 이력서지원 액션-->
+	<action name="applysubmit" class="apply.applysubmitAction">
+		<result>/post/applysubmitOK.jsp</result>
+			
+	</action>
+	</package>
 	
 	<include file="join.xml"/>
 	<include file="login.xml"/>
