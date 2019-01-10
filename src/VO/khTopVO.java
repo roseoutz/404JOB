@@ -12,9 +12,16 @@ public class khTopVO {
 	private String cmember_cname;
 	private String detail_url;
 	private String detail_logo;
+	private String detail_dept;
 	private String cmember_id;
 	
 	
+	public String getDetail_dept() {
+		return detail_dept;
+	}
+	public void setDetail_dept(String detail_dept) {
+		this.detail_dept = detail_dept;
+	}
 	public String getCmember_id() {
 		return cmember_id;
 	}

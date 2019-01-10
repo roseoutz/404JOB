@@ -95,7 +95,7 @@ location.replace("main.action");
 	<div class="resumePage">
 		<div class="resumeHeader">
 			<div class="container">
-				<a href="main.action" class="logo"><img src="resumewrite/images/404job.png" alt="404JOB"></a>
+				<a href="main.action" class="logo"><img src="resumewrite/images/404job.png" alt="404JOB" height="20"></a>
 				<div class="links">
 					<a href="../main.action"
 						class="link linkHome">개인회원 홈</a> <a

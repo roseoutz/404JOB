@@ -100,7 +100,7 @@
 
                     </dl>
 						<p class="coBtn">
-							<button type="button" class="girBtn girBtn_2 girBtnFav  devFavor5dkahxpr" onclick="go_favor('dkahxpr');"><span><strong class="tahoma devFavorCnt"></strong>관심기업</span></button>
+							<button type="button" class="girBtn girBtn_2 girBtnFav  devFavor5dkahxpr" onclick="javascript:location.href='favcorpadd.action?post_no=<s:property value="%{resultClass.post_no}"/>&cmember_cname=<s:property value="%{resultClass.cmember_cname}"/>'"><span><strong class="tahoma devFavorCnt"></strong>관심기업</span></button>
                         </p>				</div>
 							
 						</div>

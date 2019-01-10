@@ -42,10 +42,16 @@
 				</s:if>
 				<s:else>
 					<div class="loginWrap">
-						<h3>
-							<s:property value="#session.session_id" />
-							님 환영합니다.
-						</h3>
+						<div class="mbrLinks clear">
+            <span class="mbr dotum">
+            
+                <a href="resumeView.action" class="devHref devClick" ><strong>내 이력서 보기</strong></a><br>
+                <a href="mypage.action" class="devHref devClick" ><strong>지원한 공채 보기</strong></a><br>
+                <a href="favcorp.action" class="devHref devClick" ><strong>관심 기업 보기</strong></a><br>
+                <a href="geInfo.action" class="devHref devClick" ><strong>회원정보 수정</strong></a><br>
+            </span>
+            
+        </div>
 
 					</div>
 				</s:else>
@@ -70,7 +76,7 @@
 									<span class="name"> 
 									<span class="logo" style="width: 268px;"> 
 									<img src=<s:property value="detail_logo"/> width="100" height="50"
-											onerror="/image/404JOB.png;">
+											onerror="this.src='//localhost:8080/404JOB/image/noimage.png';">
 								</span>
 											<a class="coLink" href="postview.action?post_no=<s:property value='post_no'/>"
 							 target="_blank" title="기업정보 이동">
@@ -109,7 +115,7 @@
 							<span class="name"> <span class="logo"> <img
 									src=<s:property value="detail_logo"/> width="86" height="34"
 									alt="메리츠화재"
-									onerror="this.src='//img.jobkorea.co.kr/Images/Logo/86/l/o/logo_none_86.gif';">
+									onerror="this.src='//localhost:8080/404JOB/image/noimage.png';">
 							</span>
 							</span>
 						</div>

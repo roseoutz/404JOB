@@ -61,11 +61,11 @@
 					<dd>TEL : 1588-9350</dd>
 					<dd><span class="blind">근무시간 : </span> <span class="ko">평일</span> 09:00 ~ 19:00 <span class="ko sat">토요일</span> 09:00 ~ 15:00</dd>
 					<dd>FAX : 02-565-9351</dd>
-					<dd class="email">E-mail : <a href="mailto:helpdesk@jobkorea.co.kr">helpdesk@jobkorea.co.kr</a></dd>
+					<dd class="email">E-mail : <a href="mailto:helpdesk@404JOB.co.kr">helpdesk@404JOB.co.kr</a></dd>
 				</dl>
 				<p><a href="https://www.jobkorea.co.kr/Service_JK/privacy.asp" target="_blank"><img src="./resources/footer_award_privacy.png" width="84" height="30" alt="개인정보보호 우수사이트"></a></p>
 			</div>
-			<p id="copyright"><img src="./info/resources/copyright_1.png" alt="Copyright © JOBKOREA Corp. All Rights Reserved." usemap="#copyright"></p>
-			<map name="copyright"><area shape="rect" coords="114,0,181,19" href="http://www.jobkorea.co.kr/" target="_blank" alt="잡코리아"></map>
-			<p class="moveToTop"><a href="https://www.jobkorea.co.kr/Text_User/User_Info_Mng.asp#top">맨 위로 이동하기</a></p>
+			<p id="copyright"><img src="./image/copyright.png" alt="Copyright © 404JOB Corp. All Rights Reserved." usemap="#copyright" width="200px;"></p>
+			<map name="copyright"><area shape="rect" coords="114,0,181,19" href="main.action" target="_blank" alt="404JOB"></map>
+			<p class="moveToTop"><a href="main.action">맨 위로 이동하기</a></p>
 		</div>

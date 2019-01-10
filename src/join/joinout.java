@@ -38,7 +38,7 @@ public class joinout extends ActionSupport{
 		CparamClass = new khCMemberVO();
 		paramClass = new khMemberVO();
 		
-		if(member_type=="기업") {
+		if(member_type=="corp") {
 			CparamClass.setCmember_id(getCmember_id());
 			CparamClass.setCmember_pass(getCmember_pass());
 			sqlMapper.delete("deleteCMember", CparamClass);
@@ -57,29 +57,32 @@ public class joinout extends ActionSupport{
 	}
 	
 	public String checkAction() throws Exception {
-	int x;
+	
 	CparamClass = new khCMemberVO();
 	paramClass = new khMemberVO();
+	
+	CresultClass = new khCMemberVO();
+	resultClass = new khMemberVO();
 	
 	System.out.println(member_type);
 	if(member_type.equals("corp")) {
 		CparamClass.setCmember_id(getCmember_id());
-		System.out.println(CparamClass.getCmember_id());
-		System.out.println(CparamClass.getCmember_pass());
 		CparamClass.setCmember_pass(getCmember_pass());
-		x = (int)sqlMapper.queryForObject("loginCheckCorp", CparamClass);
+		CresultClass = (khCMemberVO) sqlMapper.queryForObject("loginCheckCorp", CparamClass);
+		if(CresultClass.getCmember_id()!=getCmember_id() || CresultClass.getCmember_pass()!=getCmember_pass()) {
+			return ERROR;
+		}
 	} else {
 		paramClass.setMember_id(getMember_id());
 		paramClass.setMember_pass(getMember_pass());
-		System.out.println(paramClass.getMember_id());
-		System.out.println(paramClass.getMember_pass());
-		x = (int)sqlMapper.queryForObject("loginCheckGen", paramClass);
+		resultClass = (khMemberVO) sqlMapper.queryForObject("loginCheckGen", paramClass);
+		if(resultClass.getMember_id()!=getMember_id()||resultClass.getMember_pass()!=getMember_pass()) {
+			return ERROR;
+		}
+		}
+		return SUCCESS;
 	}
-	if(x!=1) {
-		return ERROR;
-	}
-	return SUCCESS;
-	}
+	
 
 	public Reader getReader() {
 		return reader;
