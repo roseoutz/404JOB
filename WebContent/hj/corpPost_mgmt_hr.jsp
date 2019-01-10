@@ -18,7 +18,7 @@
 							<li class="hdTab"><a
 								href="corppostlist.action">공고 관리</a></li>
 							<li class="on"><a
-								href="corphr.action">지원자 관리</a></li>
+								href="applyList.action">지원자 관리</a></li>
 						</ul>
 					</div>
 					<div class="tableList  ">
@@ -26,51 +26,45 @@
 							<div class="listSortArea">
 								<div class="col col01" style="width:120px;">지원자명</div>
 								<div class="col col02" style="width:120px;">개인정보</div>
-								<div class="col col03" style="width:120px;">지원분야</div>
 								<div class="col col04" style="width:200px;">이력서</div>
 								<div class="col col05" style="width:120px;">학력</div>
 								<div class="col col06" style="width:120px;">지역</div>
-								<div class="col col07" style="width:120px;">간편처리</div>
+								<!-- <div class="col col07" style="width:120px;">간편처리</div> -->
 							</div>
 							<div class="mtuList">
 								<ul>
 									<!-- [개발] 이력서 작성중 yet 클래스 추가 -->
+									<s:iterator value="applicantlist" status="stat">
 									<li class="ing">
 										<div class="col col01" style="width:120px;">
 											<div class="tit">
-												<em class="badge">신입</em><a
-													href="/User/Resume/Write" target="_blank">홍길동</a>
+												<a href="/User/Resume/Write" target="_blank"><s:property value="member_name"/></a>
 											</div>
 											<div class="date"></div>
 										</div>
 										<div class="col col02" style="width:120px;">
 											<div class="sTit">
-												<span>1990년생</span> <span>남</span> 
-											</div>
-										</div>
-										<div class="col col03" style="width:120px;">
-											<div class="sTit">
-												<span>IT&#183;인터넷</span>
+												<span><s:property value="resume_birth"/></span> <span><s:property value="resume_sex"/></span> 
 											</div>
 										</div>
 										<div class="col col04" style="width:200px;">
 											<div class="tit">
-												<a href="" class="link" title="대신금융그룹 경력 및 신입사원 채용" data-pagecode="ST"
-												data-ctgrcode="B02" target="_blank"> <span>이력서 제목</span>
+												<a href="" class="link" data-pagecode="ST"
+												data-ctgrcode="B02" target="_blank"> <span><s:property value="resume_subject"/></span>
 												</a>	
 											</div>
 										</div>
 										<div class="col col05" style="width:120px;">
 											<div class="sDesc">
-												<span>대졸</span>
+												<span><s:property value="edu_school_type"/></span>
 											</div>
 										</div>
 										<div class="col col06" style="width:120px;">
 											<div class="sDesc">
-												<span>서울</span>
+												<span><s:property value="resume_addr"/></span>
 											</div>
 										</div>
-										<div class="col col07" style="width:120px;">
+										<%-- <div class="col col07" style="width:120px;">
 											<!-- checkbox -->
 											<div class="btnCell">
 												<a class="btn" href="" target="_blank">OK</a>
@@ -80,8 +74,9 @@
 													<span>삭제</span>
 												</button>
 											</div>
-										</div>
+										</div> --%>
 									</li>
+									</s:iterator>
 								</ul>
 							</div>
 						</div>
@@ -110,7 +105,7 @@
 									target="_blank">공고 등록</a></li>
 								<li><a href="corppostlist.action">등록 공고
 										관리</a></li>
-								<li><a href="corpresumelist.action">지원자
+								<li><a href="applyList.action">지원자
 										관리</a></li>
 							</ul>
 						</div>
@@ -129,7 +124,7 @@
 							<h2 class="lnbTit">회원정보 관리</h2>
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
-								<li><a href="#">회원정보 수정</a></li>
+								<li><a href="corpInfo.action">회원정보 수정</a></li>
 								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>

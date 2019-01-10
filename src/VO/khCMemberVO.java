@@ -16,6 +16,7 @@ public class khCMemberVO {
 	private Date cmember_date;
 	private String cmember_pdate;
 
+	
 	public String getCmember_cno() {
 		return cmember_cno;
 	}

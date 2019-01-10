@@ -48,6 +48,7 @@ public class corpInfoViewAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String execute() throws Exception{
+		
 		paramClass = new khCMemberVO();
 		resultClass = new khCMemberVO();
 		
@@ -67,7 +68,7 @@ public class corpInfoViewAction extends ActionSupport implements SessionAware {
 		dParamClass.setDetail_pay(getDetail_pay());
 		dParamClass.setDetail_sales(getDetail_sales());
 		dParamClass.setDetail_url(getDetail_url());
-		
+		System.out.println(session_id);
 		resultClass = (khCMemberVO) sqlMapper.queryForObject("selectCorpAll2",session_id);
 		
 		dResultClass = (khCMemberDetailVO) sqlMapper.queryForObject("selectCorpDetailAll2",session_id);

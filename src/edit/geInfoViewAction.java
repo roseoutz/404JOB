@@ -51,7 +51,7 @@ public class geInfoViewAction extends ActionSupport implements SessionAware{
 		//paramClass.setMember_id((String)session.getAttribute("session_id"));
 		
 		session_id = (String) session.get("session_id");
-		
+		System.out.println(session_id);
 		paramClass.setMember_name(getMember_name());
 		paramClass.setMember_email(getMember_email());
 		paramClass.setMember_phone(getMember_phone());

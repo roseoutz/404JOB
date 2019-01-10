@@ -36,15 +36,14 @@
 	<div class="gnbWrap gnbWrap_mMng">
 		<div id="gnb">
 			<!--// 개인회원 -->
-			<h1><a class="logo" href="http://www.jobkorea.co.kr/"><img alt="잡코리아" src="./info/resources/h_logo.gif"></a>
+			<h1><a class="logo" href="main.action"><img alt="잡코리아" src="./info/resources/h_logo.gif"></a>
 			<span class="bar"><span class="title"><img src="./info/resources/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
 			</h1>
 			<h2 class="skip">주요링크</h2>
 			<div class="secNav">
 				<ol>
-					<li class="mn1"><a href="localhost:8080/testwebb/editInfo.action"><span></span>개인정보 수정</a></li>
-					<li class="mn2"><a href="#"><span></span>비밀번호변경</a></li>
-					<li class="mn3 end"><a href="#" target="_blank"><span></span>회원탈퇴</a></li>
+					<li class="mn1"><a href="editInfo.action"><span></span>개인정보 수정</a></li>
+					<li class="mn3 end"><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class=""><span></span>회원탈퇴</a></li>
 				</ol>
 			</div>
 		</div>

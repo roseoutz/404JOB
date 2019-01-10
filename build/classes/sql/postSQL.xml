@@ -3,6 +3,7 @@
 
 <sqlMap>
 	<typeAlias alias="post" type="VO.khPostVO"/>
+	<typeAlias alias="applyhr" type="VO.khApplyHrVO"/>
 	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
 		<resultMap class="post" id="postRes">
 			<result property="post_no" column="post_no"/>
@@ -22,6 +23,12 @@
 		<insert id="insertPost" parameterClass="post">
 			insert into kh_post(post_no, post_subject, post_writer, post_content, post_date, post_career, post_edu, post_em_type, post_pay, post_loc, post_prefer, post_time)
 			values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
+		</insert>
+		
+		<!-- 즉시지원 삽 -->
+		<insert id="insertNowApply" parameterClass = "applyhr">
+			insert into kh_apply_hr(apply_no, apply_m_id, apply_c_id, apply_post_no) 
+			values (kh_apply_hr_seq.NEXTVAL, #apply_mem_id#, #apply_company_id#, #apply_post_no#)
 		</insert>
 
 </sqlMap>

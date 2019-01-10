@@ -13,7 +13,11 @@ var EchoPN = "";
 </script> 
 <script type="text/javascript" src="./info/resources/EchoScriptV2.js"></script>
 <!-- 키워드 스크립트 끝 -->
-
+<script>
+function open_win_noresizable(url, name) {
+	var oWin = window.open(url, name, "scrollbars=no,status=no, resizable=no, width=300, height=150");	
+}
+</script>
 
 <!-- DataStory Javascript Tracking  -->
 <script type="text/javascript" src="./info/resources/dslog.js" id="dslog_tag"></script>

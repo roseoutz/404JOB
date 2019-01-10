@@ -57,4 +57,12 @@
 	<select id = "loginCheckGen" resultClass = "member" parameterClass = "member">
 		SELECT * FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
 	</select>
+	
+	<delete id="deleteMember" parameterClass="String">
+		delete from kh_member where member_id = #member_id#
+	</delete>
+	
+	<delete id="deleteCMember" parameterClass="String">
+		delete from kh_member where cmember_id = #cmember_id#
+	</delete>
 </sqlMap>

@@ -3,7 +3,7 @@ package VO;
 import java.util.Date;
 
 public class khApplyVO {
-	//ÀÎÀû
+	//ï¿½ï¿½ï¿½ï¿½
 	private int resume_no; 
 	private String resume_m_id; 
 	private String resume_addr; 
@@ -11,7 +11,7 @@ public class khApplyVO {
 	private Date resume_date; 
 	private String resume_sex;
 	private String resume_birth;
-	//ÇÐ·Â
+	//ï¿½Ð·ï¿½
 	private int edu_no;					
 	private int edu_resume_no;				
 	private String edu_school_type;		
@@ -21,7 +21,7 @@ public class khApplyVO {
 	private String edu_enter_date;		
 	private String edu_graduate_date;		
 	private String edu_graduate_status;
-	//°æ·Â
+	//ï¿½ï¿½ï¿½
 	private int career_no;			
 	private int career_re_no;		
 	private String career_cname;	
@@ -33,22 +33,24 @@ public class khApplyVO {
 	private String career_pay;		
 	private String career_content;
 	private String career_explain;
-	//¼ö»ó
+	//ï¿½ï¿½ï¿½ï¿½
 	private int award_no; 			
 	private int award_re_no;			
 	private String award_name; 		
 	private String award_publisher;	
 	private String award_date; 	
-	//Æ÷Æ®
+	//ï¿½ï¿½Æ®
 	private int port_no; 			
 	private int port_re_no; 		
 	private String port_url; 		
 	private String port_orgname; 	
 	private String port_savname; 	
-	//ÀÚ¼Ò¼­
+	//ï¿½Ú¼Ò¼ï¿½
 	private int intro_no;		
 	private int intro_re_no;		
 	private String intro_content;
+	
+	
 	public int getResume_no() {
 		return resume_no;
 	}
@@ -288,5 +290,8 @@ public class khApplyVO {
 	}
 	public void setIntro_content(String intro_content) {
 		this.intro_content = intro_content;
-	}	
+	}
+
+		
+	
 }

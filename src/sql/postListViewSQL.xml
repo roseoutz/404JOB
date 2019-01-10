@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="postviewList" type="VO.khPostVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="postviewList" id="postViewListRes">
+			<result property="post_subject" column="post_subject"/>
+			<result property="post_no" column="post_no"/>
+		</resultMap>
+		
+		<select id="selectPostList" parameterClass="String" resultMap="postViewListRes">
+		select * from kh_post where post_writer = #post_writer#
+		</select>
+		
+		<delete id="selectPostDelete" parameterClass="postviewList">
+		delete from kh_post where post_no=#post_no#
+		</delete>
+</sqlMap>

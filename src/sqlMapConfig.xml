@@ -41,4 +41,6 @@
 	<sqlMap resource="/sql/resumeSQL.xml"/>
 	<sqlMap resource="/sql/applySQL.xml"/>
 	<sqlMap resource="/sql/editInfoSQL.xml"/>
+	<sqlMap resource="/sql/postListViewSQL.xml"/>
+	<sqlMap resource="/sql/corpAppSQL.xml"/>
 </sqlMapConfig>

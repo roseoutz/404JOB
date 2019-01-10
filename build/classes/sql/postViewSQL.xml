@@ -26,10 +26,18 @@
 		</resultMap>
 		
 		<select id="selectPostOne" parameterClass="int" resultMap="postViewRes">
+		<!--  
 		select post_no, post_subject, post_content, post_career, post_edu, post_em_type, post_pay, post_loc, 
 		post_prefer, post_time, cmember_type, cmember_cname, detail_em_num, detail_sales, detail_url, detail_logo, detail_capital, detail_dept
 		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer and cmember_id=detail_cmember_id) 
 		and post_no = #post_no#
+		-->
+		select post_no, post_subject, post_content, post_career, post_edu, post_em_type, post_pay, post_loc, 
+		post_prefer, post_time, cmember_type, cmember_cname, detail_em_num, detail_sales, detail_url, detail_logo, detail_capital, detail_dept
+		from kh_post
+		join kh_cmember on post_writer = cmember_id
+		left join kh_cmember_detail on cmember_id = detail_cmember_id
+		where post_no = #post_no#
 		</select>
 	<typeAlias alias="postFavList" type="VO.khPostViewVO"/>
 	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->

@@ -94,7 +94,7 @@ function open_chk(){
 									target="_blank">공고 등록</a></li>
 								<li><a href="corppostlist.action">등록 공고
 										관리</a></li>
-								<li><a href="corpresumelist.action">지원자
+								<li><a href="applyList.action">지원자
 										관리</a></li>
 							</ul>
 						</div>
@@ -104,6 +104,8 @@ function open_chk(){
 							<ul>
 								<li><a href="corphrsearch.action"
 									target="_blank">인재 검색</a></li>
+								<li><a href="corphrfav.action"
+									target="_blank">관심 인재</a></li>
 							</ul>
 						</div>
 						<hr/>
@@ -111,7 +113,7 @@ function open_chk(){
 							<h2 class="lnbTit">회원정보 관리</h2>
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
-								<li><a href="#">회원정보 수정</a></li>
+								<li><a href="geInfo.action">회원정보 수정</a></li>
 								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>

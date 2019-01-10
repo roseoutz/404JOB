@@ -124,7 +124,7 @@
 									target="_blank">공고 등록</a></li>
 								<li><a href="corppostlist.action">등록 공고
 										관리</a></li>
-								<li><a href="corpresumelist.action">지원자
+								<li><a href="applyList.action">지원자
 										관리</a></li>
 							</ul>
 						</div>
@@ -143,7 +143,7 @@
 							<h2 class="lnbTit">회원정보 관리</h2>
 							<ul>
 								<li><a href="corpinfo.action">기업정보 수정</a></li>
-								<li><a href="#">회원정보 수정</a></li>
+								<li><a href="corpInfo.action">회원정보 수정</a></li>
 								<li><a href="#">회원탈퇴</a></li>
 							</ul>
 						</div>
