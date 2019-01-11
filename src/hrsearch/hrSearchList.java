@@ -1,6 +1,7 @@
 package hrsearch;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ibatis.common.resources.Resources;
@@ -35,6 +36,7 @@ public class hrSearchList extends ActionSupport{
 	}
 	
 	public String execute() throws Exception {
+		hrSearchList = new ArrayList<khHrSearchVO>();
 		hrSearchList = sqlMapper.queryForList("hrSearchList");
 		totalCount = hrSearchList.size();
 		page = new hrSearchPagingAction(currentPage, totalCount, blockCount, blockPage, getKeyword());

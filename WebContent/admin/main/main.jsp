@@ -16,7 +16,7 @@
 
 	<div id="container">
 		<div class="logo">
-			<img src="./image/404JOB.png" height="39" width="160" style="float: left;">
+			<img src="../image/404JOB.png" height="39" width="160" style="float: left;">
 		</div>
 		
 

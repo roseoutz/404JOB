@@ -48,9 +48,7 @@
 										</div>
 										<div class="col col04" style="width:25%;">
 											<div class="btnCell">
-												<button class="btn" type="button" onclick="">
-													<span>삭제</span>
-												</button>
+												
 											</div>
 										</div>
 									</li>

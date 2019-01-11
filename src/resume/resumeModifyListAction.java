@@ -33,7 +33,7 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 		session_id = (String)session.get("session_id");
 		session_type = (String)session.get("session_type");
 		apply = new khApplyVO();
-		if(session_type.equals("ÏùºÎ∞ò")) {
+		if(session_type.equals("¿œπ›")) {
 			resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
 		} else {
 			resume_no = (int)sqlMapper.queryForObject("selectResume_no", getMember_id());

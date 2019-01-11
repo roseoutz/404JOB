@@ -15,7 +15,7 @@
 			<result property="cal" column="cal"/>
 		</resultMap>
 		<select id="hrSearchList" resultMap="hrsearchRes">
-			select (select MONTHS_BETWEEN(TO_DATE(career_leave_date,'yyyy-mm'), TO_DATE(career_enter_date,'yyyy-mm')) FROM KH_CAREER) cal, member_id, member_name, resume_addr, resume_subject, resume_birth, resume_sex, edu_school_type from
+			select (select MONTHS_BETWEEN(TO_DATE(career_leave_date,'yyyy-mm'), TO_DATE(career_enter_date,'yyyy-mm')) FROM KH_CAREER where resume_no=career_re_no) cal,member_id, member_name, resume_addr, resume_subject, resume_birth, resume_sex, edu_school_type from
 			kh_member, kh_resume, kh_edu, kh_career where (member_id=resume_m_id and resume_no=edu_resume_no and resume_no=career_re_no) 
 		</select>
 		

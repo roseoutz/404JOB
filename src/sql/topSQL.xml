@@ -23,16 +23,26 @@
 	</resultMap>
  	<select id="selectMain" resultMap="topRes">
 	 <![CDATA[ 
-		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo, detail_dept
-		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer or cmember_id=detail_cmember_id) and  rownum <= 6  order by post_pay desc
+		SELECT rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo, detail_dept
+		FROM KH_CMEMBER
+		JOIN(SELECT DISTINCT *
+		FROM KH_CMEMBER_DETAIL, KH_POST
+		WHERE DETAIL_CMEMBER_ID = post_writer
+		ORDER BY post_pay DESC)
+		ON post_writer = CMEMBER_ID where rownum<=6 order by post_pay desc
 		]]> 
 	</select>
 	
 	<select id="selectTop6" resultMap="topRes" parameterClass = "String">
 	 <![CDATA[ 
-		select  rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo, detail_dept
-		from  kh_post, KH_CMEMBER, kh_cmember_detail where (cmember_id=post_writer or cmember_id=detail_cmember_id) and  rownum <= 6 and cmember_type = #cmember_type#
-		 order by post_pay desc
+		SELECT rownum,post_no, post_subject, post_career, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo, detail_dept
+		FROM KH_CMEMBER
+		JOIN(SELECT DISTINCT *
+		FROM KH_CMEMBER_DETAIL, KH_POST
+		WHERE DETAIL_CMEMBER_ID = post_writer
+		ORDER BY post_pay DESC)
+		ON post_writer = CMEMBER_ID 
+		where rownum<=6 and cmember_type=#cmember_type# order by post_pay desc
 		]]> 
 	</select>
 
@@ -64,7 +74,7 @@
 		WHERE DETAIL_CMEMBER_ID = post_writer
 		ORDER BY post_pay DESC)
 		ON post_writer = CMEMBER_ID
-		AND (post_career='무관' or post_career='신입')
+		AND (post_career='경력무관' or post_career='신입' or post_career='무관')
 	</select>
 	<select id="selectTOP_oldbee" resultMap="topRes">
 		SELECT post_no,ROWNUM, post_subject, post_career,post_pay, post_em_type, post_edu, post_loc, cmember_type, cmember_cname, detail_url, detail_logo, detail_dept

@@ -40,42 +40,42 @@ public class topList extends ActionSupport{
 
 	public String execute() throws Exception {
 		if(getCategory()==null&&getKeyword()==null) {
-			System.out.println("1");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP");
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 		} else if(getCategory()==null&&getKeyword()!=null) {
-			System.out.println("2");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP_cat", getKeyword());
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 		} else if(category.equals("newbee")&&getKeyword()==null) {
-			System.out.println("3");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP_newbee");
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 		} else if(category.equals("newbee")&&getKeyword()!=null) {
-			System.out.println("4");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP_newbee_cat", getKeyword());
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 		} else if(category.equals("oldbee")&&getKeyword()==null) {
-			System.out.println("5");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP_oldbee");
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 		} else if(category.equals("oldbee")&&getKeyword()!=null) {
-			System.out.println("6");
+			System.out.println(getKeyword());
 			post = sqlMapper.queryForList("selectTOP_oldbee_cat", getKeyword());
 			totalCount = post.size();
 			page = new topPagingAction(currentPage, totalCount, blockCount, blockPage);

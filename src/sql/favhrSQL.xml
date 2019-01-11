@@ -34,7 +34,8 @@
 		
 		<select id="favhrList" resultMap="favhrlistRes" parameterClass="String">
 			select 
-			(select MONTHS_BETWEEN(TO_DATE(career_leave_date,'yyyy-mm'), TO_DATE(career_enter_date,'yyyy-mm')) FROM KH_CAREER) cal, 
+			(
+			select MONTHS_BETWEEN(TO_DATE(career_leave_date,'yyyy-mm'), TO_DATE(career_enter_date,'yyyy-mm')) FROM KH_CAREER where resume_no=career_re_no) as cal, 
 			fav_h_no, member_id, member_name, resume_addr, resume_subject, resume_birth, resume_sex, edu_school_type from KH_MEMBER
 			INNER JOIN KH_RESUME on(resume_m_id = member_id)
 			inner JOIN KH_FAV_HR on(fav_h_m_id = member_id)

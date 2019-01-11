@@ -65,7 +65,7 @@
 										</div>
 										<div class="col col03" style="width:228px;">
 											<div class="tit">
-												<a href="" class="link"> <span><s:property value="resume_subject"/></span>
+												<a href="resumeView.action?member_id=<s:property value="member_id"/>" class="link"> <span><s:property value="resume_subject"/></span>
 												</a>	
 											</div>
 										</div>

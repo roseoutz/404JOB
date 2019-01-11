@@ -58,9 +58,6 @@
 										<div class="col col02">
 											<!-- checkbox -->
 											<div class="btnCell">
-												<a class="btn" href="" target="_blank">수정</a>
-											</div>
-											<div class="btnCell">
 												<button class="btn" type="button" onclick="location.href='corppostdelete.action?post_writer=<s:property value="post_writer"/>&post_no=<s:property value="post_no"/>'">
 													<span>삭제</span>
 												</button>
